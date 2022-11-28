@@ -45,11 +45,14 @@ console.log(spaceShips)
 
 for (let i = 0; i < spaceShips.length; i++) {
     if (USS_Assembly.hull > 0) {
-    USS_Assembly.fight(spaceShips[i])
-    if (spaceShips[i].hull > 0) {spaceShips[i].fight(USS_Assembly)}
+    if (Math.random() * USS_Assembly.accuracy > 0.5) {
+        USS_Assembly.fight(spaceShips[i])
+    }
+    if ((spaceShips[i].hull > 0) && (Math.random() * spaceShips[i].accuracy) > 0.5)
+     {spaceShips[i].fight(USS_Assembly)}
  }
 
 }
 
-prompt("Do you want to fight the next alien ship?")
+// prompt("Do you want to fight the next alien ship?")
 console.log(spaceShips)
